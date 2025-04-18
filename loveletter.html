@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 1 Month ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(120deg, #ffdde1, #ee9ca7);
+      color: #333;
+      overflow-x: hidden;
+      animation: fadeIn 2s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    header {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+      animation: bounceIn 1.5s ease-out;
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      color: #e91e63;
+    }
+    section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .photo-card {
+      position: relative;
+      width: 220px;
+      height: 300px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+    .photo-card:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    .photo-card img,
+    .photo-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(1.05);
+      transition: transform 0.3s ease;
+      border-radius: 20px;
+    }
+    .photo-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(255,255,255,0.3);
+      animation: popIn 0.5s ease;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .lightbox:after {
+      content: '✖';
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .love-letter {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      font-style: italic;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .timeline li {
+      margin-bottom: 1rem;
+    }
+    .countdown, .reasons, .easter-egg {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .reason {
+      display: none;
+      margin: 1rem 0;
+      font-weight: bold;
+    }
+    button {
+      background: #e91e63;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #d81b60;
+    }
+    .video-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .video-container video {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      section {
+        padding: 1.5rem 1rem;
+      }
+      button {
+        width: 100%;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Happy 1 Month, Love ❤️</h1>
+    <p>On March 17, something beautiful began — our relationship. I made this little website just for us, to celebrate everything we’ve shared in this first magical month and everything that's still ahead. 💕</p>
+  </header>
+
+  <section>
+    <h2>📸 Our Memories</h2>
+    <div class="gallery">
+      <div class="photo-card"><img src="p_1.jpeg" alt="Memory 1" onclick="openLightbox(this.src)"></div>
+      <div class="photo-card"><img src="p_2.jpeg" alt="Memory 2" onclick="openLightbox(this.src)"></div>
+      <div class="photo-card"><img src="p_3.jpeg" alt="Memory 3" onclick="openLightbox(this.src)"></div>
+      <div class="photo-card"><img src="p_4.jpeg" alt="Memory 4" onclick="openLightbox(this.src)"></div>
+      <div class="photo-card"><img src="p_5.jpeg" alt="Memory 5" onclick="openLightbox(this.src)"></div>
+      <div class="photo-card">
+        <video autoplay loop muted playsinline>
+          <source src="dance_video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Full View" />
+  </div>
+
+  <section>
+    <h2>💞 Our Vibe</h2>
+    <div class="video-container">
+      <video autoplay loop muted playsinline>
+        <source src="love_theme.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <section>
+    <h2>🕒 Timeline</h2>
+    <ul class="timeline">
+      <li><strong>March 16:</strong> The day I told you about my love for you in the cinema. Even though we weren't in a relationship yet, I couldn't hold back my feelings anymore. 🎥❤️</li>
+      <li><strong>March 17:</strong> The day we made it official 💞</li>
+      <li><strong>March 28:</strong> The day of the biggest earthquake in Myanmar. You were there for me, all day and all night. We stood together, facing it all. 💪💖</li>
+      <li><strong>April 1:</strong> The day we became a long-distance couple. Though miles apart, our love only grew stronger. Distance doesn't change what we have. 🌍💌</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>💌 A Letter For You</h2>
+    <div class="love-letter">
+      This past month has been one of the happiest chapters of my life. You light up my days in ways I never knew possible. Thank you for being my safe space, my sunshine, and my favorite notification. Here’s to the adventures ahead, the cuddles, the chaotic inside jokes, and growing together. You mean the world to me. ILY always ❤️
+    </div>
+  </section>
+
+  <section class="reasons">
+    <h2>❤️ Reasons Why I Love You</h2>
+    <button onclick="showReason()">Reveal a reason</button>
+    <p class="reason" id="reason"></p>
+  </section>
+
+  <section class="easter-egg">
+    <button onclick="revealSecret()">Don't press me 😳</button>
+    <p id="secret" style="display:none;">You just unlocked a secret… Loving you feels like finding the missing piece of my soul I never knew was lost 🕊️💫</p>
+  </section>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+
+    const reasons = [
+      "With you, even silence feels like a love song 🎶❤️",
+      "You're the first person I think about in the morning 💭",
+      "You hype me up like no one else 🔥",
+      "You're my peace in the chaos ☁️",
+      "You're ridiculously cute (like dangerously cute) 😍"
+    ];
+    function showReason() {
+      const reason = reasons[Math.floor(Math.random() * reasons.length)];
+      const reasonEl = document.getElementById("reason");
+      reasonEl.textContent = reason;
+      reasonEl.style.display = 'block';
+    }
+
+    function revealSecret() {
+      document.getElementById("secret").style.display = 'block';
+    }
+  </script>
+</body>
+</html>
